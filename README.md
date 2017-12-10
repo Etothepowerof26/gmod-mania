@@ -1,2 +1,2 @@
-#GMOD Mania
+## GMOD Mania
 An osu!mania clone.
