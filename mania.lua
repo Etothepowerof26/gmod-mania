@@ -1,5 +1,5 @@
 --beatmap
-surface.CreateFont( "BudgetLabel20", {
+surface.CreateFont( "BudgetLabel30", {
 	font = "BudgetLabel",
 	size = 30
 } )
