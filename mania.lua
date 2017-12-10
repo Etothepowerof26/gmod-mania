@@ -1,4 +1,8 @@
 --beatmap
+surface.CreateFont( "BudgetLabel20", {
+	font = "BudgetLabel",
+	size = 30
+} )
 mania = mania or {}
 k1,k2,k3,k4 = {},{},{},{}
 curroffset = 0
