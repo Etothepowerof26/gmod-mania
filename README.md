@@ -8,3 +8,4 @@ This will recognize any osu!mania 4k song. To add one, create a pull request to 
 --//(songname).txt, this can be any 4k mania difficulty. Whole thing works too!
 --//(songname).ogg, song of the map
 ```
+TODO: Add beatmap selector and things.
