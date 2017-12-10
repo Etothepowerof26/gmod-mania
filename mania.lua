@@ -154,7 +154,6 @@ mania.openframe = function()
 		hook.Remove("ManiaKeyPress", "K")
 		LocalPlayer():AllowFlashlight(true)
 		timer.Remove("offs")
-		hook.Remove("Think", "suh")
 		curroffset = 0
 		k1,k2,k3,k4 = {},{},{},{}
 		mania.currentstats = {score = 0,good = 0,meh = 0,bad = 0,miss = 0}
@@ -162,11 +161,9 @@ mania.openframe = function()
 	end
 	
 	hook.Add("ManiaKeyPress", "K", function(What)
-		local perfectoffset = 725
-		PrintTable(mania.currentstats)
 		
 		if What.What == 1 and debounce.one == false then
-			print("Pressed "..What.What) debounce.one = true
+			debounce.one = true
 			surface.PlaySound("garrysmod/balloon_pop_cute.wav")
 			if -k1[1].Offset + curroffset >= 720 then
 				mania.currentstats.score = mania.currentstats.score + mania.scoreperkey;
@@ -185,7 +182,7 @@ mania.openframe = function()
 				table.remove(k1, 1)
 			end
 		elseif What.What == 2 and debounce.two == false then
-			print("Pressed "..What.What) debounce.two = true
+			debounce.two = true
 			surface.PlaySound("garrysmod/balloon_pop_cute.wav")
 			if -k2[1].Offset + curroffset >= 720 then
 				mania.currentstats.score = mania.currentstats.score + mania.scoreperkey;
@@ -204,7 +201,7 @@ mania.openframe = function()
 				table.remove(k2, 1)
 			end
 		elseif What.What == 3 and debounce.three == false then
-			print("Pressed "..What.What) debounce.three = true
+			debounce.three = true
 			surface.PlaySound("garrysmod/balloon_pop_cute.wav")
 			if -k3[1].Offset + curroffset >= 720 then
 				mania.currentstats.score = mania.currentstats.score + mania.scoreperkey;
@@ -223,7 +220,7 @@ mania.openframe = function()
 				table.remove(k3, 1)
 			end
 		elseif What.What == 4 and debounce.four == false then
-			print("Pressed "..What.What) debounce.four = true
+			debounce.four = true
 			surface.PlaySound("garrysmod/balloon_pop_cute.wav")
 			if -k4[1].Offset + curroffset >= 720 then
 				mania.currentstats.score = mania.currentstats.score + mania.scoreperkey;
@@ -255,7 +252,6 @@ mania.openframe = function()
 		else debounce.four = false end
 	end)
 end
-
 mania.startmap = function(map)
 	if mania.ingame == true then
 		--parse map into 4 tables
@@ -274,9 +270,11 @@ mania.startmap = function(map)
 			end
 		end
 	
-		timer.Create("offs", 0, 100000, function()
+		timer.Create("offs", 0, 0, function()
 			curroffset = curroffset + mania.add
-			print(curroffset)
+			if curroffset >= play[#play].Offset then
+				timer.Remove("offs")	
+			end
 		end)
 	else
 		return "You arent in a game!"
