@@ -1,1 +1,2 @@
-gmod-mania
+#GMOD Mania
+An osu!mania clone.
