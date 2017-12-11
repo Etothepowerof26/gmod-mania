@@ -17,7 +17,7 @@ DistanceSpacing: 0.6
 BeatDivisor: 4
 GridSize: 4
 TimelineZoom: 2.4
-
+ 
 [Metadata]
 Title:Kakushinteki*Metamaruphose!
 TitleUnicode:かくしん的☆めたまるふぉ～ぜっ！
